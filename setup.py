@@ -38,8 +38,8 @@ setup(name="SudachiPy",
           "console_scripts": ["sudachipy=sudachipy.command_line:main"],
       },
       install_requires=[
-            "sortedcontainers~=2.1.0",
-            'dartsclone~=0.9.0',
+            "sortedcontainers~=2.4.0",
+            'dartsclone~=0.10.2',
       ],
       ext_modules=extensions,
       )
