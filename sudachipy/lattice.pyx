@@ -27,6 +27,9 @@ cdef class Lattice:
         self.end_lists = []
         self.grammar = grammar
         self.eos_params = grammar.get_eos_parameter()
+        self.eos_node = LatticeNode()
+        self.eos_node.set_parameter(self.eos_params[0], self.eos_params[1], self.eos_params[2])
+        self.eos_node.begin = self.eos_node.end = 0
         cdef LatticeNode bos_node = LatticeNode()
         bos_params = grammar.get_bos_parameter()
         bos_node.set_parameter(bos_params[0], bos_params[1], bos_params[2])
@@ -45,8 +48,7 @@ cdef class Lattice:
     def clear(self) -> None:
         for i in range(1, self.size + 1):
             self.end_lists[i].clear()
-        self.size = 0
-        self.eos_node = None
+        self.resize(0)
 
     def expand(self, new_size: int) -> None:
         expand_list = [[] for _ in range(self.size, new_size)]
