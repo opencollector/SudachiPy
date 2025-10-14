@@ -24,7 +24,7 @@ extensions = [
 
 setup(name="SudachiPy",
       use_scm_version=True,
-      setup_requires=['setuptools_scm', 'cython'],
+      setup_requires=['setuptools_scm', 'cython==3.1.4'],
       description="Python version of Sudachi, the Japanese Morphological Analyzer",
       long_description=open('README.md', encoding='utf-8').read(),
       long_description_content_type="text/markdown",
